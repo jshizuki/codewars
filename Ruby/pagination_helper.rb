@@ -37,9 +37,10 @@ class PaginationHelper
     if item_index > @collection.count - 1 || item_index < 0
       -1
     else
-      arrangement = @collection.each_slice(@items_per_page).map(&:to_a)
-      valid_index = arrangement.join.index(@collection[item_index]) == item_index.to_s
-      arrangement.index(arrangement.find { |each| each.include?(@collection[item_index]) && valid_index })
+      # arrangement = @collection.each_slice(@items_per_page).map(&:to_a)
+      # valid_index = arrangement.join.index(@collection[item_index]) == item_index.to_s
+      # arrangement.index(arrangement.find { |each| each.include?(@collection[item_index]) && valid_index })
+      item_index / @items_per_page
     end
   end
 end
