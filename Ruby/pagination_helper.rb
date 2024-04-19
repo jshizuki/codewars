@@ -34,16 +34,9 @@ class PaginationHelper
   # determines what page an item is on. Zero based indexes.
   # this method should return -1 for item_index values that are out of range
   def page_index(item_index)
-    if item_index > @collection.count - 1 || item_index < 0
-      -1
-    else
-      # arrangement = @collection.each_slice(@items_per_page).map(&:to_a)
-      # valid_index = arrangement.join.index(@collection[item_index]) == item_index.to_s
-      # arrangement.index(arrangement.find { |each| each.include?(@collection[item_index]) && valid_index })
-      item_index / @items_per_page
-    end
+    (item_index > @collection.count - 1 || item_index < 0) ? -1 : item_index / @items_per_page
   end
 end
 
 test = PaginationHelper.new(['a','b','c','d','e','f'], 2)
-p test.page_index(1)
+p test.page_index(4)
