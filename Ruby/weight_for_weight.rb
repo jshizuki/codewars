@@ -3,9 +3,7 @@ def order_weight(strng)
   original_weights_in_sum = []
   final_result = []
 
-  original_weights.each do |weight|
-    original_weights_in_sum << weight.chars.map(&:to_i).sum
-  end
+  original_weights.each { |weight|  original_weights_in_sum << weight.chars.map(&:to_i).sum }
 
   min_value = original_weights_in_sum.min
 
