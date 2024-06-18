@@ -23,7 +23,20 @@ end
 
 p find_numbers_equal_to_target([1, 2, 4, 4], 8)
 
-# [1, 2, 4, 4], 8
+# Find the only integer that repeats an odd number of times
+
+def find_num_odd_occurrences(arr)
+  occurrences = Hash.new
+
+  arr.each do |num|
+    occurrences[num].nil? ? occurrences[num] = 1 : occurrences[num] += 1
+  end
+
+  occurrences.find { |_, v| v.odd? }[0] # [:4, 1]
+end
+
+# [1, 2, 1, 4, 2]
+p find_num_odd_occurrences([1, 2, 1, 2, 2, 4, 4, 4, 4])
 
 # Write a function that removes odd numbers from an array of numbers
 
