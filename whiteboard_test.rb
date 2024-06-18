@@ -1,5 +1,30 @@
 # THE REACTO METHOD - (REPEAT, EXPLAIN, ? , CODE, TEST, OPTIMIZE)
 
+# Find the pair of numbers that add up to the target number
+
+def find_numbers_equal_to_target(arr, target)
+  result = []
+  sum = 0
+
+  arr.each_with_index do |num, index|
+    adjacent_index = index + 1
+    arr[(adjacent_index)..-1].length.times do
+      sum = num + arr[adjacent_index]
+      if sum == target
+        result << num
+        result << arr[adjacent_index]
+        break if sum == target
+      end
+      adjacent_index += 1
+    end
+  end
+  result
+end
+
+p find_numbers_equal_to_target([1, 2, 4, 4], 8)
+
+# [1, 2, 4, 4], 8
+
 # Write a function that removes odd numbers from an array of numbers
 
 def fizz_buzz(n)
