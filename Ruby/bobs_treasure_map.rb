@@ -10,9 +10,12 @@ def treasure_finder(map)
 
   return nil if filtered_directions.empty?
 
+  p filtered_directions
+
   filtered_directions.each do |dir|
     !simplified_arr.nil? && simplified_arr.last == opposite_directions[dir] ?
     simplified_arr.pop : simplified_arr << dir
+    p simplified_arr
   end
 
   simplified_arr.each { |dir| dir == "E" || dir == "W" ? x += score[dir] : y += score[dir] }
