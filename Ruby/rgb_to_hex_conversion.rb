@@ -1,6 +1,6 @@
 def rgb(r, g, b)
-  letters = ("A".."F").to_a
-  letters_hex_conversion = (10..15).to_a
+  p letters = ("A".."F").to_a
+  p letters_hex_conversion = (10..15).to_a
 
   array = [r, g, b]
 
@@ -15,7 +15,7 @@ def rgb(r, g, b)
     remaining_value = each - (hex * 16)
     second_hex = remaining_value < 10 ? remaining_value : letters[letters_hex_conversion.index(remaining_value)]
 
-    array[i] = "#{first_hex}#{second_hex}"
+    p array[i] = "#{first_hex}#{second_hex}"
   end
 
   array.join
