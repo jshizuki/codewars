@@ -3,22 +3,13 @@
 # Find the pair of numbers that add up to the target number
 
 def find_numbers_equal_to_target(arr, target)
-  result = []
-  sum = 0
-
+  pair = []
   arr.each_with_index do |num, index|
-    adjacent_index = index + 1
-    arr[(adjacent_index)..-1].length.times do
-      sum = num + arr[adjacent_index]
-      if sum == target
-        result << num
-        result << arr[adjacent_index]
-        break if sum == target
-      end
-      adjacent_index += 1
-    end
+    difference = target - num
+    pair.push(num, difference) if arr.include?(difference)
+    break if pair.count == 2
   end
-  result
+  pair
 end
 
 p find_numbers_equal_to_target([1, 2, 4, 4], 8)
