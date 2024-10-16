@@ -17,4 +17,3 @@ public class WolfInSheepClothing {
         System.out.println(warnTheSheep(new String[]{"sheep", "sheep", "sheep", "wolf", "sheep"}));
     }
 }
-
